@@ -78,4 +78,11 @@ class Lobby
 
         return $q->fetch() !== false;
     }
+    
+    public static function leave($lobby, $user)
+    {
+        $db = Database::connect();
+        $q = $db->prepare("DELETE FROM members WHERE lobby_id = ? AND user_id = ?");
+        $q->execute([$lobby, $user]);
+    }
 }

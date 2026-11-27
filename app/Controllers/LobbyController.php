@@ -45,4 +45,11 @@ class LobbyController
         header('Location: /?page=lobbies');
         exit;
     }
+    
+    public function leave()
+    {
+        Lobby::leave($_POST['lobby_id'], $_SESSION['user']['id']);
+        header('Location: /?page=lobbies');
+        exit;
+    }
 }

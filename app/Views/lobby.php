@@ -13,6 +13,22 @@
         <input type="hidden" name="lobby_id" value="<?= $id ?>">
         <button>Присоединиться</button>
     </form>
+<?php else: ?>
+    <h2>Пригласить пользователя</h2>
+
+    <form method="post" action="/?page=send">
+        <input type="hidden" name="lobby_id" value="<?= $id ?>">
+        <select name="receiver_id">
+            <?php foreach ($users as $u): ?>
+                <option value="<?= $u['id'] ?>"><?= htmlspecialchars($u['username']) ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button>Отправить приглашение</button>
+    </form>
+        <form method="post" action="/?page=leave" style="margin-top: 20px;">
+        <input type="hidden" name="lobby_id" value="<?= $id ?>">
+        <button style="background: #b00020;">Выйти из лобби</button>
+    </form>
 <?php endif; ?>
 
 <a href="/?page=lobbies">Назад</a>

@@ -9,12 +9,12 @@
     <header>
         <b>GameLobby</b>
 
-        <?php if (isset($_SESSION['user'])): ?>
-            <nav>
-                <a href="/?page=lobbies">Лобби</a>
-                <a href="/?page=logout">Выйти</a>
-            </nav>
+        <?php if(isset($_SESSION['user'])): ?>
+        <nav>
+            <a href="/?page=lobbies">Лобби</a>
+            <a href="/?page=invitations">Приглашения</a>
+            <a href="/?page=logout">Выйти</a>
+        </nav>
         <?php endif; ?>
     </header>
-</body>
-</html>
+    <main>
